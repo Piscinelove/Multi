@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'New York';
+  src: url("../fonts/Chalet.woff") format("woff"); }
+
+html {
+  height: 100%; }
+  html body {
+    height: 100%;
+    background: #2a2d3e;
+    /* fallback for old browsers */ }
+    html body nav {
+      background-color: transparent;
+      box-shadow: none; }
+      html body nav .brand-logo {
+        font-family: 'New York'; }
+    html body section#try {
+      min-height: calc(100vh - 64px); }
+      html body section#try #try-translation {
+        font-size: 2em;
+        color: white;
+        min-height: 200px; }
+      html body section#try #try-buttons {
+        margin: 0 auto; }
+        html body section#try #try-buttons .input-field.inline .select-wrapper input {
+          color: white;
+          border-bottom: none; }
+        html body section#try #try-buttons .input-field.inline .select-wrapper svg {
+          fill: white; }
+        html body section#try #try-buttons .input-field.inline .select-wrapper img {
+          width: 20px;
+          height: 20px;
+          margin: 15px 20px; }
+        html body section#try #try-buttons #try-record {
+          margin: 0 1.5em; }
+    html body section#login {
+      min-height: calc(100vh - 64px); }
+      html body section#login #login-card {
+        margin: 0 auto;
+        width: 300px; }
+        html body section#login #login-card #login-title {
+          font-weight: bold;
+          font-size: 2em;
+          font-family: 'New York'; }
+        html body section#login #login-card #login-form-submit-button {
+          margin: 0 auto; }
+
+/*# sourceMappingURL=index.css.map */

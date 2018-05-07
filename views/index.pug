@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  section#try.full-section.valign-wrapper
+    div.container
+      div.row.col.s12.center
+        div#try-translation
+          p#translation-text
+           | Let's try me...
+
+      div.row.col.s12.center
+        div#try-buttons
+          div#try-source-language.input-field.inline
+            select(name="source-language")
+              option(value="fr-FR", data-icon="images/countries/fr-FR.svg") French
+              option(value="en-US", data-icon="images/countries/en-US.svg", selected) English
+              option(value="de-DE", data-icon="images/countries/de-DE.svg") German
+              option(value="es-ES", data-icon="images/countries/es-ES.svg") Spanish
+              option(value="it-IT", data-icon="images/countries/it-IT.svg") Italian
+              option(value="nl-NL", data-icon="images/countries/nl-NL.svg") Nederlands
+              option(value="pl-PL", data-icon="images/countries/pl-PL.svg") Polski
+          a#try-record.waves-effect.waves-light.btn-floating.btn-large(onclick="talk()")
+            i.material-icons.left keyboard_voice
+
+          div#try-target-language.input-field.inline
+            select(name="target-language")
+              option(value="fr-FR", data-icon="images/countries/fr-FR.svg", selected) French
+              option(value="en-US", data-icon="images/countries/en-US.svg") English
+              option(value="de-DE", data-icon="images/countries/de-DE.svg") German
+              option(value="es-ES", data-icon="images/countries/es-ES.svg") Spanish
+              option(value="it-IT", data-icon="images/countries/it-IT.svg") Italian
+              option(value="nl-NL", data-icon="images/countries/nl-NL.svg") Nederlands
+              option(value="pl-PL", data-icon="images/countries/pl-PL.svg") Polski
+

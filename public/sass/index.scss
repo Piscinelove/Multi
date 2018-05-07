@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'New York';
+  src: url("../fonts/Chalet.woff") format("woff");
+}
+
+html
+{
+  height: 100%;
+
+  body
+  {
+    height: 100%;
+    background: #2a2d3e;  /* fallback for old browsers */
+
+    nav
+    {
+      background-color: transparent;
+      box-shadow: none;
+      .brand-logo
+      {
+        font-family: 'New York';
+      }
+    }
+
+    section
+    {
+      &#try
+      {
+        min-height: calc(100vh - 64px);
+
+        #try-translation
+        {
+          font-size: 2em;
+          color:white;
+          min-height: 200px;
+        }
+        #try-buttons
+        {
+          margin:0 auto;
+          .input-field.inline
+          {
+            .select-wrapper
+            {
+              input
+              {
+                color:white;
+                border-bottom: none;
+              }
+
+              svg
+              {
+                fill:white;
+              }
+
+              img
+              {
+                width: 20px;
+                height: 20px;
+                margin: 15px 20px;
+              }
+            }
+          }
+
+          #try-record
+          {
+            margin: 0 1.5em;
+
+          }
+        }
+      }
+      &#login
+      {
+        min-height: calc(100vh - 64px);
+
+        #login-card
+        {
+          margin: 0 auto;
+          width: 300px;
+          #login-title
+          {
+            font-weight: bold;
+            font-size: 2em;
+            font-family: 'New York';
+          }
+          #login-form-submit-button
+          {
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+
+  }
+}

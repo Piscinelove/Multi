@@ -1,0 +1,34 @@
+extends layout
+
+block content
+    section#login.full-section.valign-wrapper
+        div#login-card.card-panel
+            div.row
+                p#login-title.center-align.teal-text.text-lighten-1 multilingual
+            div.row
+                form(method="POST", action="/login")#login-form.col.s12
+                    div.row
+                        div.input-field
+                            input#nickname(type="text", name="nickname", required).validate
+                            label(for="nickname") Nickname
+                    div.row
+                        div.input-field
+                            input#room(type="number", name="room", required).validate
+                            label(for="room") Room
+                    div.row
+                        div.input-field
+                            select(name="language")
+                                option(value="fr-FR") French
+                                option(value="en-US" selected) English
+                                option(value="de-DE") German
+                                option(value="es-ES") Spanish
+                                option(value="it-IT") Italian
+                                option(value="nl-NL") Nederlands
+                                option(value="pl-PL") Polski
+                    div.row
+                        div.col.s12.center-align
+                            button#login-form-submit-button.btn.waves-effect.waves-light.btn-large(type="submit", name="action") Enter
+                                i.material-icons.right lock_outline
+
+
+

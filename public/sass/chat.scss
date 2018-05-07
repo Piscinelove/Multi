@@ -1,0 +1,164 @@
+@font-face {
+  font-family: 'New York';
+  src: url("../fonts/Chalet.woff") format("woff");
+}
+
+html
+{
+  height: 100%;
+
+  body
+  {
+    height: 100%;
+
+    ul
+    {
+      &.sidenav
+      {
+        background-color: #2a2d3e;
+        .title
+        {
+          font-weight: bold;
+          font-size: 2.5em;
+          font-family: 'New York';
+          margin-top: 1.5em;
+        }
+
+        .subtitle
+        {
+          font-weight: bold;
+          font-size: 1em;
+          font-family: 'New York';
+        }
+
+        #users
+        {
+          max-height: 80vh;
+          overflow-y: scroll;
+          li
+          {
+            a
+            {
+              color:white;
+              font-variant: all-small-caps;
+              font-size: 18px;
+              i
+              {
+                color: white;
+              }
+              .user-country{
+                width: 18px;
+                vertical-align: middle;
+                margin-right: 1em;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    section
+    {
+      &#chat
+      {
+        padding-left: 300px;
+        &.full-section
+        {
+          width: 100%;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+
+
+
+          #chat-messages
+          {
+            flex-grow: 1;
+            overflow-y: scroll;
+            #messages
+            {
+              padding: 5em;
+              .message-text
+              {
+
+                padding: 20px;
+                background: #ecf1f8;
+                font-size: 18px;
+                border-radius: 5px;
+                margin-bottom: 3px;
+                //min-width: 250px;
+                &.right
+                {
+                  text-align: right;
+                  background : #26a69a;
+                  color:white;
+                }
+
+              }
+              .message-from
+              {
+
+                display: block;
+                width: 100%;
+                text-align: left;
+                font-size: 11px;
+                &.right
+                {
+                  text-align: right;
+                }
+              }
+            }
+          }
+
+          #chat-message
+          {
+            display: flex;
+            flex-shrink: 0;
+            #chat-message-form
+            {
+              flex-grow: 1;
+              display: flex;
+              input[type="text"]
+              {
+                padding-left: 10px;
+                padding-right: 10px;
+                outline: none;
+                border-bottom: none;
+                &:focus
+                {
+                  border-bottom: none;
+                  outline: none;
+                  box-shadow: none;
+                }
+              }
+              #chat-message-send-button
+              {
+                width: 150px;
+                i
+                {
+                  vertical-align: middle;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 992px) {
+  html
+  {
+    body
+    {
+      section
+      {
+        &#chat
+        {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}

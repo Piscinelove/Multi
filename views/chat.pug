@@ -1,0 +1,16 @@
+extends layout_chat
+
+block content
+    section#chat.full-section
+        div#chat-messages
+            ul#messages
+        div#chat-message.grey.lighten-5
+            form#chat-message-form
+                input#chat-message-input(type="text" placeholder="Talk to us", disabled)
+                a#chat-message-send-button.waves-effect.waves-light.btn.btn-large(onclick="writeMessage()")
+                    i.material-icons mic
+    script.
+        var nickname = "#{JSON.stringify(nickname)}";
+        var room = "#{JSON.stringify(room)}";
+        var language = "#{JSON.stringify(language)}";
+

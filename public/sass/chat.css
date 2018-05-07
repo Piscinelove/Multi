@@ -1,0 +1,86 @@
+@font-face {
+  font-family: 'New York';
+  src: url("../fonts/Chalet.woff") format("woff"); }
+
+html {
+  height: 100%; }
+  html body {
+    height: 100%; }
+    html body ul.sidenav {
+      background-color: #2a2d3e; }
+      html body ul.sidenav .title {
+        font-weight: bold;
+        font-size: 2.5em;
+        font-family: 'New York';
+        margin-top: 1.5em; }
+      html body ul.sidenav .subtitle {
+        font-weight: bold;
+        font-size: 1em;
+        font-family: 'New York'; }
+      html body ul.sidenav #users {
+        max-height: 80vh;
+        overflow-y: scroll; }
+        html body ul.sidenav #users li a {
+          color: white;
+          font-variant: all-small-caps;
+          font-size: 18px; }
+          html body ul.sidenav #users li a i {
+            color: white; }
+          html body ul.sidenav #users li a .user-country {
+            width: 18px;
+            vertical-align: middle;
+            margin-right: 1em; }
+    html body section#chat {
+      padding-left: 300px; }
+      html body section#chat.full-section {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column; }
+        html body section#chat.full-section #chat-messages {
+          flex-grow: 1;
+          overflow-y: scroll; }
+          html body section#chat.full-section #chat-messages #messages {
+            padding: 5em; }
+            html body section#chat.full-section #chat-messages #messages .message-text {
+              padding: 20px;
+              background: #ecf1f8;
+              font-size: 18px;
+              border-radius: 5px;
+              margin-bottom: 3px; }
+              html body section#chat.full-section #chat-messages #messages .message-text.right {
+                text-align: right;
+                background: #26a69a;
+                color: white; }
+            html body section#chat.full-section #chat-messages #messages .message-from {
+              display: block;
+              width: 100%;
+              text-align: left;
+              font-size: 11px; }
+              html body section#chat.full-section #chat-messages #messages .message-from.right {
+                text-align: right; }
+        html body section#chat.full-section #chat-message {
+          display: flex;
+          flex-shrink: 0; }
+          html body section#chat.full-section #chat-message #chat-message-form {
+            flex-grow: 1;
+            display: flex; }
+            html body section#chat.full-section #chat-message #chat-message-form input[type="text"] {
+              padding-left: 10px;
+              padding-right: 10px;
+              outline: none;
+              border-bottom: none; }
+              html body section#chat.full-section #chat-message #chat-message-form input[type="text"]:focus {
+                border-bottom: none;
+                outline: none;
+                box-shadow: none; }
+            html body section#chat.full-section #chat-message #chat-message-form #chat-message-send-button {
+              width: 150px; }
+              html body section#chat.full-section #chat-message #chat-message-form #chat-message-send-button i {
+                vertical-align: middle; }
+
+@media only screen and (max-width: 992px) {
+  html body section#chat {
+    padding-left: 0; } }
+
+/*# sourceMappingURL=chat.css.map */

@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    link(rel='stylesheet', href='/sass/materialize.css')
+    link(rel='stylesheet', href='/sass/index.css')
+
+    script(rel='javascript', src='/js/lib/jquery.min.js')
+    script(rel='javascript', src='/js/lib/materialize.min.js')
+    script(rel='javascript', src='/js/lib/socket.io.slim.js')
+    script(rel='javascript', src='/js/index.js')
+
+    nav
+      div.nav-wrapper
+        div.container
+          a(href="/").brand-logo multilingual
+          ul#nav-mobile.right.hide-on-med-and-down
+            li
+              a(href="/") TRY IT
+                i.material-icons.right child_care
+            li
+              a(href="/login") CHAT TOGETHER
+                i.material-icons.right chat_bubble_outline
+
+  body
+    block content
+

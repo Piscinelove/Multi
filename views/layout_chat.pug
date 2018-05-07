@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='https://fonts.googleapis.com/icon?family=Material+Icons')
+    link(rel='stylesheet', href='/sass/materialize.css')
+    link(rel='stylesheet', href='/sass/chat.css')
+
+    script(rel='javascript', src='/js/lib/jquery.min.js')
+    script(rel='javascript', src='/js/lib/materialize.min.js')
+    script(rel='javascript', src='/js/lib/socket.io.slim.js')
+    script(rel='javascript', src='/js/index.js')
+    script(rel='javascript', src='/js/chat.js')
+
+    ul#slide-out.sidenav.sidenav-fixed.sidenav-fixed
+      li
+        a(href="/").teal-text.center-align.title.text-lighten-1 multilingual
+      li
+        a.white-text.center-align.subtitle room ##{room}
+      div#users
+
+  body
+    block content
+
