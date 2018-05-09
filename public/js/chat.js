@@ -5,12 +5,15 @@ var socket = io();
 socket.on('newMessage', function (messages, from) {
     if(from != nickname) {
         $('#messages').append('<li><div class="message-text left">' + messages[language] + '</div><div class="message-from left">' + from + '</div></li>');
+        scrollToBottom();
         var msg = new SpeechSynthesisUtterance(messages[language]);
         msg.lang = language;
         speechSynthesis.speak(msg);
     }
-    else
-        $('#messages').append('<li><div class="message-text right">'+messages[language]+'</div><div class="message-from right">'+from+'</div></li>');
+    else {
+        $('#messages').append('<li><div class="message-text right">' + messages[language] + '</div><div class="message-from right">' + from + '</div></li>');
+        scrollToBottom()
+    }
 
 
 });
@@ -21,10 +24,12 @@ socket.on('adminMessage', function (messages) {
 
 socket.on('leftMessage', function (messages) {
     $('#messages').append('<li><div class="right red-text text-darken-1">'+messages[language]+'</div><div class="message-from right">Admin</div></li>');
+    scrollToBottom();
 });
 
 socket.on('joinMessage', function (messages) {
     $('#messages').append('<li><div class="right teal-text">'+messages[language]+'</div><div class="message-from right">Admin</div></li>');
+    scrollToBottom();
 });
 
 socket.on('updateUserList', function (users) {
@@ -144,4 +149,12 @@ function stopRecognition()
     $('#chat-message-send-button').removeClass('red');
     $('#chat-message-send-button').removeClass('darken-3');
     $('#chat-message-send-button').removeClass('pulse');
+}
+
+/* SCROLL BOTTOM CHAT */
+function scrollToBottom()
+{
+    var lastMessage = $('ul#messages li:last-child div:last-child');
+    var speed = 700; // Dur�e de l'animation (en ms)
+    $('#chat-messages').animate( { scrollTop: $(lastMessage).offset().top }, speed ); // Go
 }
