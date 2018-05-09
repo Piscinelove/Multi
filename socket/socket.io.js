@@ -24,13 +24,14 @@ io.on('connection', (socket) => {
         {
             var messages = {};
             messages['fr-FR'] = user.nickname+" a quitté le chat";
-            messages['en-US'] = user.nickname+" left the chat";
+            messages['en-EN'] = user.nickname+" left the chat";
             messages['de-DE'] = user.nickname+" verließ den Chat";
             messages['es-ES'] = user.nickname+" dejó el chat";
             messages['it-IT'] = user.nickname+" ha lasciato la chat";
             messages['nl-NL'] = user.nickname+" verliet de chat";
             messages['pl-PL'] = user.nickname+" opuścił czat";
             io.in(user.room).emit('leftMessage', messages);
+            io.in(user.room).emit('updateUserList', users.getUserListRoom(user.room));
         }
     });
     /**
@@ -43,7 +44,7 @@ io.on('connection', (socket) => {
 
         var welcomeMessages = {};
         welcomeMessages['fr-FR'] = "Bienvenue "+nickname+" dans l'application de chat multilingue !";
-        welcomeMessages['en-US'] = "Welcome "+nickname+" to the multilingual chat app !";
+        welcomeMessages['en-EN'] = "Welcome "+nickname+" to the multilingual chat app !";
         welcomeMessages['de-DE'] = "Willkommen "+nickname+" in der mehrsprachigen Chat-App !";
         welcomeMessages['es-ES'] = "Bienvenido "+nickname+" a la aplicación de chat multilingüe !";
         welcomeMessages['it-IT'] = "Benvenuto "+nickname+" nell'app chat multilingue !";
@@ -52,7 +53,7 @@ io.on('connection', (socket) => {
 
         var joinMessages = {};
         joinMessages['fr-FR'] = nickname+" a rejoint le chat";
-        joinMessages['en-US'] = nickname+" joined the chat";
+        joinMessages['en-EN'] = nickname+" joined the chat";
         joinMessages['de-DE'] = nickname+" ist dem Chat beigetreten";
         joinMessages['es-ES'] = nickname+" se unió al chat";
         joinMessages['it-IT'] = nickname+" si unì alla chat";
@@ -74,7 +75,7 @@ io.on('connection', (socket) => {
         console.log((users.getUserList(room, 'en-US')));
         var messages = {};
         messages['fr-FR'] = ((users.getUserList(room, 'fr-FR').length != 0) ? await translate(message, language, 'FR') : '');
-        messages['en-US'] = ((users.getUserList(room, 'en-US').length != 0) ? await translate(message, language, 'EN') : '');
+        messages['en-EN'] = ((users.getUserList(room, 'en-EN').length != 0) ? await translate(message, language, 'EN') : '');
         messages['de-DE'] = ((users.getUserList(room, 'de-DE').length != 0) ? await translate(message, language, 'DE') : '');
         messages['es-ES'] = ((users.getUserList(room, 'es-ES').length != 0) ? await translate(message, language, 'ES') : '');
         messages['it-IT'] = ((users.getUserList(room, 'it-IT').length != 0) ? await translate(message, language, 'IT') : '');
@@ -115,6 +116,8 @@ async function translate(text, source_lang, target_lang)
     //     console.log(error);
     //     return 'Error';
     // }
+    //
+    //
     return text;
 }
 

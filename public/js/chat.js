@@ -95,7 +95,10 @@ function writeMessage()
                     stopRecognition();
 
                     if($transcript)
+                    {
+                        $('#chat-message-input').val('');
                         socket.emit('sendMessage',nickname, room, language, $transcript);
+                    }
                     else
                         $('#chat-message-input').val("Sorry "+nickname+" i didn't unterstand :(");
                 }
@@ -128,7 +131,6 @@ function startRecognition()
 {
     $recognition.start();
     $recognizing = true;
-    $('#chat-message-input').val('');
     $('#chat-message-send-button').addClass('red');
     $('#chat-message-send-button').addClass('darken-3');
     $('#chat-message-send-button').addClass('pulse');

@@ -26,7 +26,7 @@ var server = http.createServer(app);
  */
 var socket_api = require('../socket/socket.io');
 var io = socket_api.io;
-io.attach(server);
+io.listen(server);
 
 /**
  * Listen on provided port, on all network interfaces.
@@ -35,6 +35,8 @@ io.attach(server);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
+
+
 
 
 
