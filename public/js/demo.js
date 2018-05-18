@@ -1,8 +1,13 @@
 /* HANDLE SOCKETS & MESSAGES */
 var socket = io();
 
-socket.on('translateMessageResult', function (message) {
-    $('#translation-text').text(message);
+socket.on('translateMessagesResult', function (messages) {
+    $('#en-EN').text(messages['en-EN']);
+    $('#pl-PL').text(messages['pl-PL']);
+    $('#nl-NL').text(messages['nl-NL']);
+    $('#es-ES').text(messages['es-ES']);
+    $('#de-DE').text(messages['de-DE']);
+    $('#it-IT').text(messages['it-IT']);
 });
 
 /**
@@ -12,18 +17,13 @@ socket.on('translateMessageResult', function (message) {
 var $recognition;
 var $recognizing;
 var $transcript;
-var $source_lang;
-var $target_lang;
 
-function talk()
+function demo()
 {
     if('webkitSpeechRecognition' in window)
     {
-        $source_lang = $('#try-source-language select').val();
-        $target_lang = $('#try-target-language select').val();
-
         $recognition = new webkitSpeechRecognition();
-        $recognition.lang = $source_lang;
+        $recognition.lang = 'fr-FR';
         $recognition.continous = false;
         $recognition.interimResults = true;
 
@@ -43,21 +43,22 @@ function talk()
 
         $recognition.onresult = function (event)
         {
-            $('#translation-text').text('');
+            $('#demo-message').text('');
             for(var i = event.resultIndex; i < event.results.length; i++)
             {
                 $transcript = event.results[i][0].transcript;
                 if(event.results[i].isFinal)
                 {
                     stopRecognition();
+                    $('#demo-message').text($transcript);
                     if($transcript)
-                        socket.emit('translateMessage', $source_lang, $transcript, $target_lang);
+                        socket.emit('translateMessages', $transcript);
                     else
-                        $('#translation-text').text("Sorry "+nickname+" i didn't unterstand :(");
+                        $('#demo-message').text("Error");
                 }
                 else
                 {
-                    $('#translation-text').text($('#translation-text').text()+$transcript);
+                    $('#demo-message').text($('#demo-message').text()+$transcript);
                 }
 
             }
@@ -84,10 +85,9 @@ function startRecognition()
 {
     $recognition.start();
     $recognizing = true;
-    $('#translation-text').text('');
-    $('#try-record').addClass('red');
-    $('#try-record').addClass('darken-3');
-    $('#try-record').addClass('pulse');
+    $('#demo-record-button').addClass('red');
+    $('#demo-record-button').addClass('darken-3');
+    $('#demo-record-button').addClass('pulse');
 }
 
 
@@ -95,7 +95,7 @@ function stopRecognition()
 {
     $recognition.stop();
     $recognizing = false;
-    $('#try-record').removeClass('red');
-    $('#try-record').removeClass('darken-3');
-    $('#try-record').removeClass('pulse');
+    $('#demo-record-button').removeClass('red');
+    $('#demo-record-button').removeClass('darken-3');
+    $('#demo-record-button').removeClass('pulse');
 }

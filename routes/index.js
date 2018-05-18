@@ -11,6 +11,11 @@ router.get('/login', function(req, res, next) {
     res.render('login');
 });
 
+/* GET login page. */
+router.get('/demo', function(req, res, next) {
+    res.render('demo');
+});
+
 router.post('/login', function(req, res, next) {
 
     res.redirect('../chat'+req.body.nickname+"&"+req.body.room+"&"+req.body.language);

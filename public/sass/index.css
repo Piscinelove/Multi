@@ -43,5 +43,11 @@ html {
           font-family: 'New York'; }
         html body section#login #login-card #login-form-submit-button {
           margin: 0 auto; }
+    html body section#demo {
+      min-height: calc(100vh - 64px); }
+      html body section#demo p {
+        font-size: 2em;
+        font-variant: all-small-caps;
+        color: white; }
 
 /*# sourceMappingURL=index.css.map */

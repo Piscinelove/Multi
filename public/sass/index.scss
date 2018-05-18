@@ -87,6 +87,19 @@ html
             margin: 0 auto;
           }
         }
+
+      }
+
+
+      &#demo
+      {
+        min-height: calc(100vh - 64px);
+        p
+        {
+          font-size: 2em;
+          font-variant: all-small-caps;
+          color:white;
+        }
       }
     }
 

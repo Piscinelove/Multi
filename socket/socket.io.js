@@ -97,6 +97,21 @@ io.on('connection', (socket) => {
 
 
     })
+
+    /**
+     * SOCKET TRANSLATE LIVE METHOD WHEN A CLIENT TRY THE TRANSLATION
+     */
+    socket.on('translateMessages', async (message) => {
+        var messages = {};
+        messages['fr-FR'] = message;
+        messages['en-EN'] = await translate(message, 'FR', 'EN');
+        messages['de-DE'] = await translate(message, 'FR', 'DE');
+        messages['es-ES'] = await translate(message, 'FR', 'ES');
+        messages['it-IT'] = await translate(message, 'FR', 'IT');
+        messages['nl-NL'] = await translate(message, 'FR', 'NL');
+        messages['pl-PL'] = await translate(message, 'FR', 'PL');
+        socket.emit('translateMessagesResult', messages);
+    })
 });
 
 /**
@@ -116,8 +131,8 @@ async function translate(text, source_lang, target_lang)
     //     console.log(error);
     //     return 'Error';
     // }
-    //
-    //
+
+
     return text;
 }
 

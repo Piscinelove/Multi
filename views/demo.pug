@@ -1,0 +1,28 @@
+extends layout
+
+block content
+    section#demo.full-section.valign-wrapper
+        div.container
+            div.row.col.s12.center
+                p#demo-message
+            div.row
+                div.col.s6.center
+                    p#en-EN
+                div.col.s6.center
+                    p#pl-PL
+            div.row.col.s12.center
+                a#demo-record-button.btn-floating.btn-large.waves-effect.waves-light(onclick="demo()")
+                    i.material-icons language
+            div.row
+                div.col.s6.center
+                    p#de-DE
+                div.col.s6.center
+                    p#es-ES
+            div.row
+                div.col.s6.center
+                    p#it-IT
+                div.col.s6.center
+                    p#nl-NL
+
+
+    script(rel='javascript', src='/js/demo.js')
