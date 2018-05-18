@@ -53,7 +53,7 @@ function talk()
                     if($transcript)
                         socket.emit('translateMessage', $source_lang, $transcript, $target_lang);
                     else
-                        $('#translation-text').text("Sorry "+nickname+" i didn't unterstand :(");
+                        $('#translation-text').text("Error");
                 }
                 else
                 {
