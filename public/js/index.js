@@ -64,6 +64,7 @@ function talk()
         }
 
 
+
         if(!$recognizing)
         {
             startRecognition();
